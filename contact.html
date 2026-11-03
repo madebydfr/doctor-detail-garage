@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Doctor Detail Garage for a free quote or appointment request.">
+  <title>Contact | Doctor Detail Garage</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">Doctor Detail Garage</a>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Contact Us for a Free Quote</h1>
+      <p>
+        Tell us about your vehicle and the care it needs.
+        You can also request an appointment.
+      </p>
+
+      <p>
+        Email us at
+        <a href="mailto:doctordetailgarage@gmail.com">
+          doctordetailgarage@gmail.com
+        </a>
+      </p>
+
+      <form id="contact-form">
+        <p id="form-note">
+          This draft form does not send requests yet.
+        </p>
+
+        <div class="form-field">
+          <label for="name">Name (required)</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email (required)</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="request-type">Request Type</label>
+          <select id="request-type" name="request-type">
+            <option value="quote">Free quote</option>
+            <option value="appointment">Appointment request</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="service">Preferred Package</label>
+          <select id="service" name="service">
+            <option value="">Help me choose</option>
+            <option value="super-wash">Super Wash</option>
+            <option value="super-clean">Super Clean Detail</option>
+            <option value="ultimate">Ultimate Detail</option>
+            <option value="full">Full Detail</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="comments">Comments (required)</label>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="3"
+            placeholder="Tell us your vehicle's make, model, and what needs attention."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" disabled>Send My Quote Request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>We treat every car like it is ours.</p>
+    <p>© 2026 Doctor Detail Garage</p>
+    <a href="mailto:doctordetailgarage@gmail.com">
+      Email Doctor Detail Garage
+    </a>
+  </footer>
+</body>
+</html>
