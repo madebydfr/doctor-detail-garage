@@ -624,3 +624,11 @@ body {
 #review-status {
   margin-top: 16px;
 }
+
+nav a[aria-current="page"] {
+  background-color: var(--yellow);
+  color: #242424;
+  border-bottom-color: var(--yellow);
+  border-radius: 4px;
+  text-decoration: none;
+}
