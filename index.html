@@ -11,32 +11,71 @@
 </head>
 
 <body>
-    <header>
-<a href="index.html">Doctor Detail Garage</a>
-    
-    <nav aria-label="Main Navigation">
-        <ul>
-            <li><a href="index.html" aria-current="page">Home</a></li>
-            <li><a href="packages.html">Packages</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+   <header>
+  <a class="site-logo" href="index.html">
+    <img src="images/logo.PNG" alt="Doctor Detail Garage">
+  </a>
+
+  <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main>
-    <section>
+<main id="main-content">
+    <section class="hero">
+        <p class="eyebrow">Doctor Detail Garage · Vehicle care</p>
         <h1>A Fresh Start for Your Vehicle</h1>
         <p>At Doctor Detail, we help you enjoy a cleaner, more comfortable
         vehicle with detailing options that fit your needs.
     </p>
-    <a href="contact.html">Request an Appointment</a>
+    <a class="button" href="contact.html">Request an Appointment</a>
     </section>
+
 
     <section>
         <h2>Our Work</h2>
         <p>Take a closer look at the care we put into every detail.</p>
-        <!-- add image gallery here.-->
+        <div class="slideshow" aria-label="Our detailing work">
+  <img src="images/IMG_1662.jpeg"
+       alt="Vehicle exterior detailing"
+       class="is-current">
+
+  <img src="images/IMG_1667.jpeg"
+       alt="Cleaned vehicle interior"
+       class="is-next">
+
+  <img src="images/IMG_1692.jpeg"
+       alt="Vehicle polished illusion"
+       class="is-previous">
+</div>
+        
+        <div class="image-grid">
+          <figure>
+            <img src="images/IMG_1678%202.jpeg" alt="A detailer using a machine polisher on a black vehicle, with trim protected by masking tape." loading="lazy">
+            <figcaption>Close attention to the paint, one panel at a time.</figcaption>
+          </figure>
+          <div class="work-description">
+            <h3>From the surface to the small spaces</h3>
+            <p>Our packages cover exterior washing, interior cleaning, and paint care. Compare the included services to find the right level of attention for your vehicle.</p>
+            <a href="packages.html">See what each package includes</a>
+          </div>
+        </div>
     </section>
+
+<section aria-labelledby="reviews-heading">
+  <h2 id="reviews-heading">Customer Reviews</h2>
+  <p>Hear what our customers have to say.</p>
+
+  <div id="customer-reviews" class="review-grid"></div>
+
+  <a class="button" href="reviews.html">Write a Review</a>
+</section>
 
     <section>
         <h2>Care That Starts With the Details</h2>

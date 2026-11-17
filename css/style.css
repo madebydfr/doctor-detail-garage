@@ -1,10 +1,19 @@
-/* Shared colors and fonts */
+/* Load your Adobe Fonts kit once for every page using this stylesheet. */
+@import url("https://use.typekit.net/lhe3lbc.css");
+
+/* I HAD AI HELP REORGANIZE MY CSS FILE FOR EASIER READING
+AS WELL AS EASIER EDITING. I ALSO ADDED COMMENTS TO HELP ME UNDERSTAND WHAT EACH SECTION DOES. */
+
+/* 1. Website colors — change these to update your color theme */
+
 :root {
-  --brown: #3f2f15;
-  --yellow: #f5f18a;
+  --brown: #242321;
+  --yellow: #ece17e;
   --orange: #dc8b20;
   --white: #ffffff;
 }
+
+/* 2. Basic page settings */
 
 * {
   box-sizing: border-box;
@@ -14,31 +23,42 @@ body {
   margin: 0;
   background-color: var(--brown);
   color: var(--white);
-  font-family: "Nimbus Sans", Arial, sans-serif;
-  font-size: 18px;
+  font-family: "nimbus-sans", Arial, sans-serif;
+  font-size: 1.125rem;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
-/* Headings */
+[hidden] {
+  display: none !important;
+}
+
+/* 3. Headings and paragraphs */
+
 h1,
 h2,
 h3 {
   line-height: 1.3;
 }
 
+/* Main heading: Good Times Bold. */
 h1 {
-  font-family: "Good Times", Arial, sans-serif;
+  font-weight: 700;
+  font-family: "good-times", Arial, sans-serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--yellow);
 }
 
+/* Kit has regular (400), not Light. Use regular for now. */
 h2 {
-  font-family: "Good Times Light", "Good Times", Arial, sans-serif;
+  font-weight: 400;
+  font-family: "good-times", Arial, sans-serif;
   font-size: 1.8rem;
 }
 
 h3 {
-  font-family: "Good Times Light", "Good Times", Arial, sans-serif;
+  font-weight: 400;
+  font-family: "good-times", Arial, sans-serif;
   font-style: italic;
   font-size: 1.1rem;
 }
@@ -47,13 +67,22 @@ p {
   margin: 0 0 1.25rem;
 }
 
+/* 4. Links — hover means mouse over; active means being clicked */
+
 a {
+  font-family: "nimbus-sans", Arial, sans-serif;
+  font-style: italic;
   color: var(--yellow);
   text-underline-offset: 5px;
 }
 
 a:hover {
   color: var(--white);
+}
+
+a:active {
+  color: var(--orange);
+  text-decoration: underline;
 }
 
 a:focus-visible,
@@ -65,7 +94,8 @@ textarea:focus-visible {
   outline-offset: 4px;
 }
 
-/* Header and navigation */
+/* 5. Header, logo, and navigation */
+
 header {
   padding: 24px;
   text-align: center;
@@ -73,9 +103,16 @@ header {
 }
 
 header > a {
-  font-family: "Good Times", Arial, sans-serif;
+  font-style: normal;
+  font-family: "good-times", Arial, sans-serif;
   font-size: 1.5rem;
   text-decoration: none;
+}
+
+/* Change 200px to make the logo larger or smaller. */
+header .site-logo img {
+  width: 200px;
+  margin: 0 auto;
 }
 
 nav ul {
@@ -88,20 +125,43 @@ nav ul {
   list-style: none;
 }
 
+/* Kit has Bold (700), not Black. */
 nav a {
+  font-style: normal;
   color: var(--white);
-  font-family: "Nimbus Sans Black", "Nimbus Sans", Arial, sans-serif;
-  font-weight: 900;
+  font-family: "nimbus-sans", Arial, sans-serif;
+  font-weight: 700;
   text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 0.2rem solid transparent;
 }
 
-nav a:hover,
+/* Mark the navigation link for the page you are viewing. */
 nav a[aria-current="page"] {
   color: var(--yellow);
   text-decoration: underline;
+  border-bottom-color: var(--yellow);
 }
 
-/* Page layout */
+nav a:hover {
+  color: var(--brown);
+  background: var(--yellow);
+  text-decoration: underline;
+}
+
+nav a:active {
+  color: var(--brown);
+  background: var(--orange);
+  border-bottom-color: var(--brown);
+}
+
+nav a[aria-current="page"]:hover {
+  border-bottom-color: var(--brown);
+}
+
+/* 6. Page sections and introductory text */
+
 main {
   width: min(1200px, 90%);
   margin: 0 auto;
@@ -115,13 +175,60 @@ section + section {
   border-top: 1px solid var(--orange);
 }
 
+.hero {
+  max-width: 52rem;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.eyebrow {
+  color: var(--yellow);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* 7. Images and video */
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* Package cards */
+.image-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.image-grid img {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+figcaption {
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+.work-description {
+  min-width: 0;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 8. Package cards */
+
 .package-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -134,11 +241,14 @@ img {
   background-color: var(--white);
   color: var(--brown);
   border-top: 6px solid var(--orange);
+  display: flex;
+  flex-direction: column;
 }
 
 .package-card h2 {
   margin-top: 0;
   font-size: 1.4rem;
+  color: var(--brown);
 }
 
 .package-card h3 {
@@ -163,7 +273,60 @@ img {
   margin-bottom: 10px;
 }
 
-/* Contact form */
+/* 9. Buttons — .button styles links that look like buttons */
+
+.button,
+button {
+  display: inline-block;
+  padding: 0.85rem 1.25rem;
+  background: var(--yellow);
+  color: var(--brown);
+  border: 0.125rem solid var(--yellow);
+  border-radius: 0.25rem;
+  font: inherit;
+  font-style: normal;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+button:disabled {
+  background-color: #dddddd;
+  color: #555555;
+  cursor: not-allowed;
+}
+
+.button:hover,
+button:hover {
+  color: var(--brown);
+  background: var(--orange);
+  border-color: var(--orange);
+  text-decoration: underline;
+}
+
+.button:active,
+button:active {
+  color: var(--brown);
+  background: var(--white);
+  border-color: var(--orange);
+  transform: translateY(0.125rem);
+}
+
+button {
+  cursor: pointer;
+}
+
+.package-card .button {
+  border-color: var(--brown);
+  margin-top: auto;
+}
+
+.package-card a:focus-visible {
+  outline-color: var(--brown);
+}
+
+/* 10. Contact form */
+
 form {
   max-width: 680px;
   margin-top: 32px;
@@ -189,31 +352,17 @@ textarea {
   background-color: var(--white);
   color: var(--brown);
   font: inherit;
+  min-width: 0;
 }
 
 textarea {
   resize: vertical;
 }
 
-button {
-  padding: 14px 24px;
-  border: 0;
-  border-radius: 4px;
-  background-color: var(--yellow);
-  color: var(--brown);
-  font: inherit;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--orange);
-}
-
-button:disabled {
-  background-color: #dddddd;
-  color: #555555;
-  cursor: not-allowed;
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: var(--yellow);
 }
 
 #form-note {
@@ -221,7 +370,12 @@ button:disabled {
   border-left: 4px solid var(--yellow);
 }
 
-/* Footer */
+#request-status {
+  margin-top: 1rem;
+}
+
+/* 11. Footer */
+
 footer {
   padding: 32px 20px;
   border-top: 2px solid var(--orange);
@@ -232,15 +386,40 @@ footer p {
   margin-bottom: 8px;
 }
 
-/* Tablet layout */
+/* 12. Keyboard shortcut to skip navigation */
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -10rem;
+  background: var(--yellow);
+  color: var(--brown);
+  padding: 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.skip-link:hover,
+.skip-link:active {
+  color: var(--brown);
+  background: var(--white);
+}
+
+/* 13. Smaller screens — these rules override desktop sizes */
+
 @media (max-width: 1000px) {
+
   .package-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
 }
 
-/* Phone layout */
 @media (max-width: 600px) {
+
   .package-grid {
     grid-template-columns: 1fr;
   }
@@ -256,4 +435,192 @@ footer p {
   h2 {
     font-size: 1.5rem;
   }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    gap: 0.25rem;
+  }
+
+  .button,
+  button {
+    max-width: 100%;
+  }
+
+  .package-card {
+    padding: 1.25rem;
+  }
+
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+}
+
+header .site-logo {
+  display: block;
+  line-height: 0;
+}
+
+header .site-logo img {
+  width: 300px;
+  height: auto;
+  margin: 0;
+}
+
+header nav ul {
+  margin: 0;
+}
+
+/* Prevent sideways shifts when a scrollbar appears */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Holds the main photo and faded previews */
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 16 / 8;
+  margin: 32px auto;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* All photos start centered and faded */
+.slideshow > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 12px;
+
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+
+  transition:
+    transform 1s ease,
+    opacity 1s ease,
+    filter 1s ease;
+}
+
+/* Clear photo in the center */
+.slideshow > .is-current {
+  z-index: 2;
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Ghost preview on the left */
+.slideshow > .is-previous {
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(2px);
+  transform: translate(-125%, -50%) scale(0.85);
+}
+
+/* Ghost preview on the right */
+.slideshow > .is-next {
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(2px);
+  transform: translate(25%, -50%) scale(0.85);
+}
+
+/* Give photos more height on phones */
+@media (max-width: 600px) {
+  .slideshow {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .slideshow > img {
+    transition: none;
+  }
+}
+
+/* Show that the faded previews are clickable */
+.slideshow > .is-previous,
+.slideshow > .is-next {
+  cursor: pointer;
+}
+
+.slideshow > .is-previous:hover,
+.slideshow > .is-next:hover {
+  opacity: 0.6;
+  filter: blur(0);
+}
+
+/* Highlight previews when navigating with the keyboard */
+.slideshow > img:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: -4px;
+}
+
+body {
+  background-color: #242424;
+
+  background-image:
+    linear-gradient(
+      rgba(36, 36, 36, 0.85),
+      rgba(36, 36, 36, 0.85)
+    ),
+    url("../images/IMG_1687.jpeg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* Customer reviews */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.review-card {
+  padding: 24px;
+  background-color: #303030;
+  border: 1px solid var(--yellow);
+  border-radius: 8px;
+}
+
+.review-card h3 {
+  margin: 0 0 8px;
+  font-family: "nimbus-sans", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.review-rating {
+  color: var(--yellow);
+}
+
+.review-message {
+  white-space: pre-wrap;
+}
+
+#review-status {
+  margin-top: 16px;
 }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Write a Review | Doctor Detail Garage</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <a class="site-logo" href="index.html">
+      <img src="images/logo.PNG" alt="Doctor Detail Garage">
+    </a>
+
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Share Your Experience</h1>
+      <p>Tell us about your visit to Doctor Detail Garage.</p>
+
+      <p id="review-storage-note">
+        This preview saves your review only in this browser.
+        It will not be published for other visitors.
+      </p>
+
+      <form id="review-form" aria-describedby="review-storage-note">
+        <div class="form-field">
+          <label for="review-name">Display name</label>
+          <input
+            id="review-name"
+            name="name"
+            type="text"
+            maxlength="60"
+            placeholder="For example, Alex R."
+            required>
+        </div>
+
+        <div class="form-field">
+          <label for="review-rating">Rating</label>
+          <select id="review-rating" name="rating" required>
+            <option value="">Choose a rating</option>
+            <option value="5">5 stars — Excellent</option>
+            <option value="4">4 stars — Good</option>
+            <option value="3">3 stars — Okay</option>
+            <option value="2">2 stars — Could be better</option>
+            <option value="1">1 star — Poor</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="review-message">Your review</label>
+          <textarea
+            id="review-message"
+            name="message"
+            rows="6"
+            maxlength="1500"
+            required></textarea>
+        </div>
+
+        <button type="submit">Save Review in This Browser</button>
+        <p id="review-status" role="status"></p>
+      </form>
+
+      <a href="index.html#reviews-heading">Back to customer reviews</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>We treat every car like it is ours.</p>
+    <p>© 2026 Doctor Detail Garage</p>
+    <a href="mailto:doctordetailgarage@gmail.com">Email Doctor Detail Garage</a>
+  </footer>
+</body>
+</html>

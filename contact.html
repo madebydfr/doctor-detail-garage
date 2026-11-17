@@ -11,19 +11,23 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header>
-    <a href="index.html">Doctor Detail Garage</a>
+  <a class="site-logo" href="index.html">
+    <img src="images/logo.PNG" alt="Doctor Detail Garage">
+  </a>
 
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="packages.html">Packages</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="contact.html">Contact</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main>
+  <main id="main-content">
     <section>
       <h1>Contact Us for a Free Quote</h1>
       <p>
@@ -40,7 +44,7 @@
 
       <form id="contact-form">
         <p id="form-note">
-          This draft form does not send requests yet.
+          Prepare your request below, then open it in your email app. Review and send the email to request a quote. Appointments are confirmed by email.
         </p>
 
         <div class="form-field">
@@ -95,17 +99,21 @@
         </div>
 
         <div class="form-field">
-          <label for="comments">Comments (required)</label>
+          <label for="comments">Vehicle and Comments (required)</label>
+          <p id="comments-help">Include your vehicle’s make, model, and what needs attention.</p>
           <textarea
             id="comments"
             name="comments"
             rows="3"
-            placeholder="Tell us your vehicle's make, model, and what needs attention."
+            aria-describedby="comments-help"
             required
           ></textarea>
         </div>
 
-        <button type="submit" disabled>Send My Quote Request</button>
+        <button type="submit" disabled>Prepare My Email</button>
+        <p id="request-status" role="status" aria-live="polite"></p>
+        <a id="email-request" class="button" hidden>Open Email App</a>
+        <noscript><p>To request a quote, email <a href="mailto:doctordetailgarage@gmail.com">doctordetailgarage@gmail.com</a> with your vehicle details and preferred package.</p></noscript>
       </form>
     </section>
   </main>
