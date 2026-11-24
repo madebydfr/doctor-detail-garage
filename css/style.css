@@ -21,7 +21,17 @@ AS WELL AS EASIER EDITING. I ALSO ADDED COMMENTS TO HELP ME UNDERSTAND WHAT EACH
 
 body {
   margin: 0;
-  background-color: var(--brown);
+  background-color: #242424;
+  background-image:
+    linear-gradient(
+      rgba(36, 36, 36, 0.85),
+      rgba(36, 36, 36, 0.85)
+    ),
+    url("../images/IMG_1687.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--white);
   font-family: "nimbus-sans", Arial, sans-serif;
   font-size: 1.125rem;
@@ -39,12 +49,12 @@ h1,
 h2,
 h3 {
   line-height: 1.3;
+  font-family: "good-times", Arial, sans-serif;
 }
 
 /* Main heading: Good Times Bold. */
 h1 {
   font-weight: 700;
-  font-family: "good-times", Arial, sans-serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--yellow);
 }
@@ -52,13 +62,11 @@ h1 {
 /* Kit has regular (400), not Light. Use regular for now. */
 h2 {
   font-weight: 400;
-  font-family: "good-times", Arial, sans-serif;
   font-size: 1.8rem;
 }
 
 h3 {
   font-weight: 400;
-  font-family: "good-times", Arial, sans-serif;
   font-style: italic;
   font-size: 1.1rem;
 }
@@ -97,7 +105,11 @@ textarea:focus-visible {
 /* 5. Header, logo, and navigation */
 
 header {
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
   text-align: center;
   border-bottom: 2px solid var(--orange);
 }
@@ -109,10 +121,16 @@ header > a {
   text-decoration: none;
 }
 
+header .site-logo {
+  display: block;
+  line-height: 0;
+}
+
 /* Change 200px to make the logo larger or smaller. */
 header .site-logo img {
   width: 200px;
-  margin: 0 auto;
+  height: auto;
+  margin: 0;
 }
 
 nav ul {
@@ -135,13 +153,6 @@ nav a {
   display: inline-block;
   padding: 0.5rem 0.75rem;
   border-bottom: 0.2rem solid transparent;
-}
-
-/* Mark the navigation link for the page you are viewing. */
-nav a[aria-current="page"] {
-  color: var(--yellow);
-  text-decoration: underline;
-  border-bottom-color: var(--yellow);
 }
 
 nav a:hover {
@@ -168,16 +179,20 @@ main {
 }
 
 section {
-  padding: 48px 0;
+  padding: 6px 0;
 }
 
 section + section {
   border-top: 1px solid var(--orange);
 }
 
+main > section:last-child {
+  padding-bottom: 48px;
+}
+
 .hero {
   max-width: 52rem;
-  padding-block: clamp(3rem, 8vw, 6rem);
+  padding-block: 1.5rem;
 }
 
 .eyebrow {
@@ -411,15 +426,12 @@ footer p {
 /* 13. Smaller screens — these rules override desktop sizes */
 
 @media (max-width: 1000px) {
-
   .package-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
 }
 
 @media (max-width: 600px) {
-
   .package-grid {
     grid-template-columns: 1fr;
   }
@@ -452,26 +464,6 @@ footer p {
   .package-card {
     padding: 1.25rem;
   }
-
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 24px;
-}
-
-header .site-logo {
-  display: block;
-  line-height: 0;
-}
-
-header .site-logo img {
-  width: 300px;
-  height: auto;
-  margin: 0;
 }
 
 header nav ul {
@@ -503,10 +495,8 @@ html {
   height: 85%;
   object-fit: cover;
   border-radius: 12px;
-
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.85);
-
   transition:
     transform 1s ease,
     opacity 1s ease,
@@ -521,19 +511,22 @@ html {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Ghost preview on the left */
-.slideshow > .is-previous {
+/* Shared faded preview styles */
+.slideshow > .is-previous,
+.slideshow > .is-next {
   z-index: 1;
   opacity: 0.3;
   filter: blur(2px);
+  cursor: pointer;
+}
+
+/* Ghost preview on the left */
+.slideshow > .is-previous {
   transform: translate(-125%, -50%) scale(0.85);
 }
 
 /* Ghost preview on the right */
 .slideshow > .is-next {
-  z-index: 1;
-  opacity: 0.3;
-  filter: blur(2px);
   transform: translate(25%, -50%) scale(0.85);
 }
 
@@ -551,12 +544,6 @@ html {
   }
 }
 
-/* Show that the faded previews are clickable */
-.slideshow > .is-previous,
-.slideshow > .is-next {
-  cursor: pointer;
-}
-
 .slideshow > .is-previous:hover,
 .slideshow > .is-next:hover {
   opacity: 0.6;
@@ -567,22 +554,6 @@ html {
 .slideshow > img:focus-visible {
   outline: 3px solid var(--yellow);
   outline-offset: -4px;
-}
-
-body {
-  background-color: #242424;
-
-  background-image:
-    linear-gradient(
-      rgba(36, 36, 36, 0.85),
-      rgba(36, 36, 36, 0.85)
-    ),
-    url("../images/IMG_1687.jpeg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 @media (max-width: 600px) {
@@ -625,6 +596,7 @@ body {
   margin-top: 16px;
 }
 
+/* Mark the navigation link for the page you are viewing. */
 nav a[aria-current="page"] {
   background-color: var(--yellow);
   color: #242424;
